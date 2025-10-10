@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"> 
 <head>
-    <style>
+        <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -9,31 +9,45 @@
         }
 
         nav {
-            background-color: #333;
-            overflow: hidden;
+            background-color: #2c3e50;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+        }
+
+        .brand-name {
+            color: white;
+            font-size: 24px;
+            margin: 0;
         }
 
         nav ul {
             list-style-type: none;
             margin: 0;
             padding: 0;
-            text-align: center;
-        }
-
-        nav ul li {
-            display: inline-block;
+            display: flex;
+            gap: 15px;
         }
 
         nav ul li a {
             display: block;
-            color: white;
+            color: #ecf0f1;
             text-align: center;
-            padding: 14px 20px;
+            padding: 10px 15px;
             text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
         }
 
         nav ul li a:hover {
-            background-color: #555;
+            background-color: #34495e;
+            border-radius: 4px;
+        }
+
+        .content {
+            padding: 20px;
         }
     </style>
     <link rel="stylesheet" href="/style/main.css">
@@ -43,14 +57,20 @@
     <title>Document</title>
 </head>
 <body>
-    <nav>
-        <ul> Kalana thotagama
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="contact.html">Contact</a></li>
+<nav>
+        <h1 class="brand-name">Kalana Thotagama</h1>
+
+        <ul>
+            <li><a href="#search">Search</a></li>
+            <li><a href="#profile">Profile</a></li>
+            <li><a href="#settings">Settings</a></li>
         </ul>
     </nav>
+
+    <div class="content">
+        <h2>This is my porfolio</h2>
+       
+    </div>
 
     <h1>Welcome to My Website</h1>
     <p>This is the main content area.</p>
