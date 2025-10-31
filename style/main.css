@@ -1,68 +1,63 @@
-/* General page styling */
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f9f9f9;
-  color: #333;
-  line-height: 1.6;
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-sizing: border-box;
+    
+    /* Glassmorphism Gradient */
+    background: linear-gradient(135deg, rgba(74, 144, 226, 0.2), rgba(16, 54, 98, 0.2));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
 }
 
-/* Container */
-.container {
-  width: 80%;
-  max-width: 900px;
-  margin: 50px auto;
-  background: #fff;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+.logo a {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
-/* Header */
-h1 {
-  color: #222;
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 10px;
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
 }
 
-h2 {
-  color: #444;
-  margin-top: 30px;
-  border-bottom: 2px solid #ddd;
-  padding-bottom: 5px;
+.nav-links li {
+    margin-left: 30px;
 }
 
-/* About section */
-p {
-  font-size: 1rem;
-  margin: 8px 0;
+.nav-links a {
+    color: #f0f0f0;
+    text-decoration: none;
+    font-size: 1.1em;
+    padding: 5px 10px;
+    transition: color 0.3s, background-color 0.3s;
+    border-radius: 5px;
 }
 
-/* Project list */
-ul {
-  margin-top: 10px;
-  padding-left: 20px;
+.nav-links a:hover {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.1);
 }
-
-ul li {
-  margin-bottom: 8px;
-  font-size: 1rem;
-}
-
-/* Footer */
-footer {
-  margin-top: 30px;
-  text-align: center;
-  font-size: 0.9rem;
-  color: #666;
-}
-img {
-  width: 100%;
-  max-width: 300px;
-}
-
-footer {
-    border: 4px #333 solid;
-} 
+ body {
+            transition: background-color 0.4s, color 0.4s; /* Smooth transition */
+            background-color: white;
+            color: #333;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+        body.dark-mode {
+            background-color: #121212; /* Very dark background */
+            color: #e0e0e0; /* Light text */
+        }

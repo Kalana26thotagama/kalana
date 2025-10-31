@@ -1,53 +1,14 @@
 <!DOCTYPE html>
 <html lang="en"> 
 <head>
+    <link rel="stylesheet" href="main.css">
         <style>
-        body {
+       body {
+            background: url('https://source.unsplash.com/1600x900/?abstract,blue') no-repeat center center fixed;
+            background-size: cover;
+            min-height: 100vh;
+            margin: 0;
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        nav {
-            background-color: #2c3e50;
-            padding: 0 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 60px;
-        }
-
-        .brand-name {
-            color: white;
-            font-size: 24px;
-            margin: 0;
-        }
-
-        nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            gap: 15px;
-        }
-
-        nav ul li a {
-            display: block;
-            color: #ecf0f1;
-            text-align: center;
-            padding: 10px 15px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
-
-        nav ul li a:hover {
-            background-color: #34495e;
-            border-radius: 4px;
-        }
-
-        .content {
-            padding: 20px;
         }
     </style>
     <link rel="stylesheet" href="/style/main.css">
@@ -57,21 +18,31 @@
     <title>Document</title>
 </head>
 <body>
-<nav>
-        <h1 class="brand-name">Kalana Thotagama</h1>
+<header class="navbar">
+        <div class="logo">
+            <a href="#home">Kalana Thotagama</a>
+        </div>
 
-        <ul>
-            <li><a href="#Contact">Contact</a></li>
-            <li><a href="#Home">Home</a></li>
-            <li><a href="#settings">Settings</a></li>
-        </ul>
-    </nav>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+</header>
+
+    <section style="padding-top: 100px; text-align: center; color: white;">
+        <h2>Welcome to my Portfolio</h2>
+        <p>This is where the rest of your website content will go.</p>
+    </section>
 
     <div class="content">
         <h2>This is my porfolio</h2>
        
     </div>
-
+<div class="new"></div>
     <h1>Welcome to My Website</h1>
     <p>This is the main content area.</p>
      <img src="src/12.png" alt="12">
@@ -95,6 +66,96 @@ Projects
         <p>&copy; 2025 kalana thotagama</p>
     </footer>
 </main>
-<script src="scripts/main.js"></script>
+<form id="contactForm">
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <span id="nameError" class="error"></span>
+    </div>
+    
+    <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <span id="emailError" class="error"></span>
+    </div>
+    
+    <button type="submit">Submit</button>
+</form>
+<script>
+    // Get the form and the inputs
+const form = document.getElementById('contactForm');
+const nameInput = document.getElementById('name');
+const emailInput = document.getElementById('email');
+
+// Get the error message elements
+const nameError = document.getElementById('nameError');
+const emailError = document.getElementById('emailError');
+
+// Regular Expression for basic email format validation
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+function validateForm(event) {
+    // Prevent the form from submitting by default
+    event.preventDefault();
+
+    let isValid = true;
+    
+    // Reset all errors
+    nameError.textContent = '';
+    emailError.textContent = '';
+
+    // --- 1. Validate Name (must not be empty) ---
+    if (nameInput.value.trim() === '') {
+        nameError.textContent = 'Name is required.';
+        isValid = false;
+    }
+
+    // --- 2. Validate Email (must not be empty AND must match email format) ---
+    const emailValue = emailInput.value.trim();
+    if (emailValue === '') {
+        emailError.textContent = 'Email is required.';
+        isValid = false;
+    } else if (!emailPattern.test(emailValue)) {
+        emailError.textContent = 'Please enter a valid email address.';
+        isValid = false;
+    }
+
+    // --- 3. Final Check ---
+    if (isValid) {
+        // If all fields are valid, you can submit the data
+        alert('Form submitted successfully!');
+        
+        // Uncomment the next line to allow the form to actually submit/redirect
+        // form.submit();
+    }
+}
+
+// Attach the validation function to the form's submit event
+form.addEventListener('submit', validateForm);
+</script>
+
+<style>
+    .error {
+        color: red;
+        font-size: 0.9em;
+        display: block;
+    }
+</style>
+<h1>Simple Dark Mode Demo</h1>
+    <p>Click the button below to switch themes.</p>
+
+    <button id="theme-toggle">Toggle Dark Mode</button>
+
+    <script>
+        // 1. Get the elements we need
+        const themeToggleButton = document.getElementById('theme-toggle');
+        const bodyElement = document.body;
+
+        // 2. Add the event listener using an anonymous function (like the "BEFORE" image)
+        themeToggleButton.addEventListener('click', function() {
+            // Toggles the 'dark-mode' class on the body
+            bodyElement.classList.toggle('dark-mode');
+        });
+    </script>
 </body>
 </html>
